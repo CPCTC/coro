@@ -1,0 +1,12 @@
+#/bin/bash
+
+if [[ -z $in_rc ]]; then
+	export in_rc=t
+	exec $SHELL --rcfile $0 -i
+fi
+unset in_rc
+. ~/.bashrc
+
+. opts.sh
+export FLAGS="${FLAGS} -Wall -Wextra -Wpedantic -Werror -g -Og"
+PS1="${PS1}(dev) "

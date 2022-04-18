@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+cd `dirname $0`/..
+. build.sh
+. opts.sh
+
+./make/clean
+recursively compile "$SOURCE_DIR"
+link

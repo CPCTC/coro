@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -e
+
+cd `dirname $0`/..
+. build.sh
+. opts.sh
+
+if [[ `type -t TEST` != function ]]; then
+	TEST () {
+		"$*"
+	}
+fi
+
+TYPE=o ./make/all
+STEP objcopy --weaken "${BUILD_DIR}/${NAME}.o"
+recursively test "$TEST_DIR"

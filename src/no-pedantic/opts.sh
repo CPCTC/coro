@@ -1,0 +1,1 @@
+FLAGS="${FLAGS} -Wno-pedantic"
